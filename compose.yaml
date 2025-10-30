@@ -1,0 +1,7 @@
+services:
+  zakrajinskipark:
+    build: .
+    ports:
+      - 8000:80
+    volumes:
+      - ./public:/usr/share/nginx/html

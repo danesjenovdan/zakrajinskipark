@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zakrajinskipark
+  labels:
+    app: zakrajinskipark
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zakrajinskipark
+  template:
+    metadata:
+      labels:
+        app: zakrajinskipark
+    spec:
+      containers:
+        - name: zakrajinskipark
+          image: zakrajinskipark
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: 25Mi
+              cpu: 25m
+            limits:
+              memory: 25Mi
+              cpu: 25m
