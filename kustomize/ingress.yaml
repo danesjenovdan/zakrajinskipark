@@ -5,25 +5,15 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-production"
 spec:
-  ingressClassName: nginx
+  ingressClassName: traefik
   tls:
     - hosts:
-        - zakrajinskipark.danesjenovdan.si
         - zakrajinskipark.djnd.si
+        - zakrajinskipark.danesjenovdan.si
       secretName: zakrajinskipark-tls
   rules:
-    - host: zakrajinskipark.danesjenovdan.si
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: zakrajinskipark
-                port:
-                  number: 80
     - host: zakrajinskipark.djnd.si
-      http:
+      http: &http_paths
         paths:
           - path: /
             pathType: Prefix
@@ -32,3 +22,5 @@ spec:
                 name: zakrajinskipark
                 port:
                   number: 80
+    - host: zakrajinskipark.danesjenovdan.si
+      http: *http_paths
