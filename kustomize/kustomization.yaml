@@ -8,4 +8,4 @@ resources:
 images:
   - name: zakrajinskipark
     newName: rg.fr-par.scw.cloud/djnd/zakrajinskipark
-    newTag: '5873a2d40e651012a4a835172709647388d79a11'
+    newTag: '5873a2d40e651012a4a835172709647388d79a11' #
